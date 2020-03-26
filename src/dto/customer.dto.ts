@@ -1,5 +1,5 @@
-export class saveCustomerDto{
-    name: string;
-    lastName: string;
-    phoneNumber: string;
+export class CreateCustomerDTO{
+    readonly name: string;
+    readonly lastName: string;
+    readonly phoneNumber: string;
 }
