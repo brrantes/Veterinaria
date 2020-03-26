@@ -1,10 +1,12 @@
-import { Schema } from "mongoose";
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 export const PetSchema = new Schema({
     name: String,
     kind: String,
     breed: String,
     vaccines: [{
-        type: String
-    }]
+        name: String
+    }],
+    customer: { type: Schema.ObjectId, ref: "Customer" } 
 });

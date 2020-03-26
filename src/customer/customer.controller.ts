@@ -33,7 +33,7 @@ export class CustomerController {
 
   @Delete("deleteCustomer/:customerId")
   async deleteCustomer(@Param("customerId") customerId : string) : Promise<ICustomer>{
-    const deletedCustomer = await this.customerService.deleteProduct(customerId);
+    const deletedCustomer = await this.customerService.deleteCustomer(customerId);
     if (deletedCustomer) {
       return deletedCustomer;
     }
@@ -44,7 +44,7 @@ export class CustomerController {
 
   @Put("updateCustomer/:customerId")
   async updateCustomer(@Param("customerId") customerId, @Body() createCustomerDTO : CreateCustomerDTO) : Promise<ICustomer>{
-    const updatedCustomer = await this.customerService.updateProduct(customerId, createCustomerDTO);
+    const updatedCustomer = await this.customerService.updateCustomer(customerId, createCustomerDTO);
     if (updatedCustomer) {
       return updatedCustomer;
     }

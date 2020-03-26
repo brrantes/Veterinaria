@@ -22,12 +22,12 @@ export class CustomerService {
         await newCustomer.save();
     }
 
-    async deleteProduct(customerId : string) : Promise<ICustomer> {
+    async deleteCustomer(customerId : string) : Promise<ICustomer> {
         const deletedCustomer = await this.customerModel.findByIdAndDelete(customerId);
         return deletedCustomer;
     }   
     
-    async updateProduct(customerId : string, createCustomerDTO : CreateCustomerDTO) : Promise<ICustomer>{
+    async updateCustomer(customerId : string, createCustomerDTO : CreateCustomerDTO) : Promise<ICustomer>{
         const updatedCustomer = await this
                                     .customerModel
                                     .findByIdAndUpdate(customerId, createCustomerDTO, {new: true});
