@@ -14,15 +14,13 @@ export class CustomerController {
     return await this.customerService.getCustomers();
   }
 
-  @Get("getCustomer/:name")
-  async getCustomer(@Param("name") name : string) :  Promise<ICustomer[]>{
-    const customer = await this.customerService.getCustomer(name);
-    if (customer.length > 0) {
-      return customer;
+  @Get("getCustomer/:id")
+  async getCustomer(@Param("id") id : string) :  Promise<ICustomer[]>{
+    const customer = await this.customerService.getCustomer(id);
+    if (!customer) {
+      throw new NotFoundException("No existen clientes con ese nombre");      
     }
-    else{
-      throw new NotFoundException("No existen clientes con ese nombre");
-    }    
+    return customer;    
   }
 
   @Post("createCustomer")
